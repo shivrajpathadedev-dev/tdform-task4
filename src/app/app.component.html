@@ -50,11 +50,8 @@
             <div class="form-group">
               <label for="AadhaarNumber">Aadhaar Number</label>
               <input type="text" class="form-control" ngModel required name="AadhaarNumber" #AadhaarNumber="ngModel"
-                maxlength="14" 
-                (input)="formatAadhaar($event)"
-                  pattern="^\d{4}\s\d{4}\s\d{4}$"
-                 (keypress)="numberOnly($event)"
-                  [(ngModel)]="aadhaarNo">
+                maxlength="14" (input)="formatAadhaar($event)" pattern="^\d{4}\s\d{4}\s\d{4}$"
+                (keypress)="numberOnly($event)" [(ngModel)]="aadhaarNo">
               <strong class="text-danger" *ngIf="AadhaarNumber.touched&&AadhaarNumber.hasError('required')">
                 Aadhaar Number is required!.
               </strong>
@@ -66,47 +63,35 @@
             <div class="form-group">
               <label for="Anualincome">Anual Income</label>
               <input type="number" class="form-control" ngModel required name="Anualincome" #Anualincome="ngModel"
-                pattern="^[0-9]+$"
-                 (keypress)="numberOnly($event)">
+                pattern="^[0-9]+$" (keypress)="numberOnly($event)">
               <strong class="text-danger" *ngIf="Anualincome.touched&&Anualincome.hasError('required')">
-               Anual Income is required!.
+                Anual Income is required!.
               </strong>
               <strong class="text-danger" *ngIf="Anualincome.dirty&&Anualincome.hasError('pattern')">
-                Anual income pattern is required!. 
+                Anual income pattern is required!.
               </strong>
             </div>
 
-           
+
             <div class="form-group">
-  <label>Loan Amount</label>
-  <input
-    type="number"
-    class="form-control"
-    name="loanAmount"
-    ngModel
-    #loanAmount="ngModel"
-    required
-    min="50001">
+              <label>Loan Amount</label>
+              <input type="number" class="form-control" name="loanAmount" ngModel #loanAmount="ngModel" required
+                min="50001">
 
-  <div class="text-danger"
-       *ngIf="loanAmount.invalid && loanAmount.touched">
+              <div class="text-danger" *ngIf="loanAmount.invalid && loanAmount.touched">
 
-    <strong *ngIf="loanAmount.touched&&loanAmount.hasError('required')">
-      Loan Amount is required.
-    </strong>
-
-    <strong *ngIf="loanAmount.dirty&&loanAmount.hasError('min')">
-      Loan Amount must be greater than 50000.
-    </strong>
-</div>
-  </div>
+                <strong *ngIf="loanAmount.touched&&loanAmount.hasError('required')">
+                  Loan Amount is required.
+                </strong>
+                <strong *ngIf="loanAmount.dirty&&loanAmount.hasError('min')">
+                  Loan Amount must be greater than 50000.
+                </strong>
+              </div>
+            </div>
             <div>
-              <button
-              [disabled]="loanform.invalid"
-               mat-raised-button color="primary" class="w-100">Apply Loan</button>
+              <button [disabled]="loanform.invalid" mat-raised-button color="primary" class="w-100">Apply Loan</button>
             </div>
 
-            
           </form>
         </div>
       </div>
