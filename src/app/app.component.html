@@ -76,19 +76,29 @@
               </strong>
             </div>
 
-            <div class="form-group">
-              <label for="loanamount">Loan Amount</label>
-              <input type="number" class="form-control" ngModel required name="loanamount" #loanamount="ngModel"
-              minlength="50001"
-                 (keypress)="numberOnly($event)">
-              <strong class="text-danger" *ngIf="loanamount.touched&&loanamount.hasError('required')">
-              Loan Amount is required!.
-              </strong>
-              <strong class="text-danger" *ngIf="loanamount.dirty&&loanamount.hasError('minlength')">
-                  Loan Amount must be greater than ₹50,000.
-              </strong>
-            </div>
+            v class="form-group">
+  <label>Loan Amount</label>
+  <input
+    type="number"
+    class="form-control"
+    name="loanAmount"
+    ngModel
+    #loanAmount="ngModel"
+    required
+    min="50001">
 
+  <div class="text-danger"
+       *ngIf="loanAmount.invalid && loanAmount.touched">
+
+    <strong *ngIf="loanAmount.touched&&loanAmount.hasError('required')">
+      Loan Amount is required.
+    </strong>
+
+    <strong *ngIf="loanAmount.dirty&&loanAmount.hasError('min')">
+      Loan Amount must be greater than 50000.
+    </strong>
+
+  </div>
             <div>
               <button
               [disabled]="loanform.invalid"
