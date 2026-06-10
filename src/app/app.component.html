@@ -47,7 +47,6 @@
                 Enter a valid PAN number (Example: ABCDE1234F)
               </strong>
             </div>
-
             <div class="form-group">
               <label for="AadhaarNumber">Aadhaar Number</label>
               <input type="text" class="form-control" ngModel required name="AadhaarNumber" #AadhaarNumber="ngModel"
@@ -80,12 +79,12 @@
             <div class="form-group">
               <label for="loanamount">Loan Amount</label>
               <input type="number" class="form-control" ngModel required name="loanamount" #loanamount="ngModel"
-              min="50001"
+              minlength="50001"
                  (keypress)="numberOnly($event)">
               <strong class="text-danger" *ngIf="loanamount.touched&&loanamount.hasError('required')">
               Loan Amount is required!.
               </strong>
-              <strong class="text-danger" *ngIf="loanamount.dirty&&loanamount.errors?.['min'] ">
+              <strong class="text-danger" *ngIf="loanamount.dirty&&loanamount.hasError('minlength')">
                   Loan Amount must be greater than ₹50,000.
               </strong>
             </div>
